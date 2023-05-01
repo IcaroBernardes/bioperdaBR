@@ -1,0 +1,139 @@
+/* Torna a fonte 'Font Awesome 6 -  Brands' disponível */
+@font-face {
+  font-family: 'FA6brands';
+  src:  url('./fonts/FA6brands.woff') format('woff'), /* Navegadores modernos */
+        url('./fonts/FA6brands.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+/* Configura links */
+a {
+  color: #d18520;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  transition: all .2s;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([href]):not([tabindex]):focus,a:not([href]):not([tabindex]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([href]):not([tabindex]):focus {
+  outline: 0;
+}
+
+/* Configuração geral */
+body {
+  background: white;
+  color: black;
+  font-family: 'Dosis', sans-serif;
+  overflow-y: hidden;
+}
+
+#quarto-content {
+  display: flex;
+}
+
+main {
+  margin: 0;
+  width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow-y: hidden;
+  padding: 2vh;
+}
+
+.navdown, .navup {
+  font-size: 10vmin;
+  line-height: 0.4;
+  cursor: pointer;
+  display: block;
+}
+
+.section-title {
+  font-size: 4vmin;
+  font-weight: bold;
+}
+
+/* Capa */
+.clip-svg {
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+#cover {
+  color: white;
+  font-size: 15vmin;
+  text-align: center;
+  line-height: 1.1;
+  height: 100vh;
+}
+
+#cover, #cover-text {
+  background: black;
+}
+
+#cover-masked {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 70vh;
+  clip-path: url("#cover-mask");
+  background-image: url("./capa_imagem.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#cover-title {
+  display: block;
+  width: 100%;
+  height: 30vh;
+  background: #00000030;
+  position: absolute;
+  bottom: 0;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+#cover-text {
+  width: 100%;
+  height: 30vh;
+  font-size: 0.25em;
+}
+
+#cover-message {
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+#cover-text .navdown {
+  margin-bottom: 10px;
+}
+
+/* Limites planetários */
+#limits {
+  width: 100%;
+  height: 100vh;
+}
+
+#limits .section-title {
+  text-align: left;
+  width: 100%;
+}

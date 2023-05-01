@@ -1,0 +1,171 @@
+---
+format:
+  html:
+    css: www/styles.css
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+<!-- Links the page to the chosen (Google Fonts) -->
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<!-- Connects to the slim version of JQuery through their CDN -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<!-- Links to the min version of Anime -->
+<script src="www/js/anime.min.js"></script>
+
+<!-- Binds clicking on the navigation buttons
+to scrolling behaviour on the page -->
+<script src="www/js/navigator.js"></script>
+
+<!-- Binds animations to elements of the page -->
+<script src="www/js/animation.js"></script>
+
+```{r initial-setup}
+
+# Setup inicial ##########
+## Carrega os pacotes
+library(dplyr)
+library(htmltools)
+library(BRlist)
+library(purrr)
+library(glue)
+library(rlang)
+library(ggplot2)
+library(ggiraph)
+
+## Lista os nomes de funções do {BRlist}
+fun_list <- ls("package:BRlist")
+
+## Carrega todos os dados usando as funções do {BRlist}
+df <- fun_list |> 
+  purrr::map_dfr(function(fname) {
+    
+    fexpr = glue::glue("BRlist::{fname}")
+    fexpr = rlang::parse_expr(fexpr)
+    df = eval(fexpr)
+    df |> dplyr::mutate(group = stringr::str_remove(fname, "BRlist"))
+    
+  })
+
+```
+
+```{r cover}
+
+# Capa ##########
+## Cria um polígono svg para recortar a imagem de capa
+htmltools::tags$svg(
+  class = "clip-svg",
+  htmltools::tags$defs(
+    htmltools::tags$clipPath(
+      id = "cover-mask", clipPathUnits="objectBoundingBox",
+      htmltools::tags$polygon(
+        points = "0 0, 1 0, 1 0.8, 0.7 0.8, 0.5 1, 0.3 0.8, 0 0.8"
+      )
+    )
+  )
+)
+
+## Insere os elementos da seção
+div(
+  id = "cover",
+  
+  div(
+    id = "cover-masked",
+    div(id = "cover-title", "FAUNA FRAGILIZADA")
+  ),
+  
+  div(
+    id = "cover-text", class = "flex-container",
+    div(id = "cover-message", "O Brasil tem mais de 4000 espécies ameaçadas de extinção."),
+    div("A perda dessas espécies fragiliza a posição do país frente às mudanças climáticas do Antropoceno.",
+        br(),
+        strong("Clique no botão"), " abaixo para navegar pela página."),
+    span(class = "navdown", "▾")
+  )
+)
+
+```
+
+
+```{r limits}
+
+# Limites planetários ##########
+## Insere os elementos da seção
+div(
+  id = "limits", class = "flex-container",
+  
+  span(class = "navup", "▴"),
+  
+  div(class = "section-title", "Por que evitar a extinção de espécies?"),
+  
+  
+  
+  span(class = "navdown", "▾")
+)
+
+```
+
+
+```{r data-handling}
+
+# 1. Data handling ##########
+
+
+```
+
+
+
+
+
+
+
+
+
+```{r description}
+
+# 2. Plot description ##########
+
+
+## Places links to my social media profiles
+div(
+  id='author',
+  
+  a(
+    href='https://twitter.com/icarobsc',
+    target='_blank',
+    span(class='glyphs', id='twt'),
+    "@IcaroBSC"
+  ),
+  a(
+    href='https://github.com/IcaroBernardes',
+    target='_blank',
+    span(class='glyphs', id='ghb'),
+    "@IcaroBernardes"
+  ),
+  a(
+    href='https://www.linkedin.com/in/icarobsc/',
+    target='_blank',
+    span(class='glyphs', id='lkd'),
+    "@icarobsc"
+  )
+  
+)
+
+
+```
+
+
+```{r plot-production}
+
+# 3. Plot production ##########
+
+
+```
