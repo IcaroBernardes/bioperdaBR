@@ -1,16 +1,16 @@
-// Binds clicking on the navigation buttons to scrolling behaviour on the page
+// Associa clique nos botões a rolagem na página
 $(document).ready(function(){
   
-  // Gets the html tag
+  // Obtém o elemento <html>
   var el = $('html')[0];
   
-  // Scrolling down
+  // Rolagem para baixo
   $('.navdown').click(function(event){
     
-    // Sets the scroll amount to the window height
+    // Define a rolagem como sendo a altura da página
     let scrl = $( window ).height();
     
-    // Scrolls down
+    // Efetua a rolagem
     el.scrollBy({
       top: scrl,
       left: 0,
@@ -19,13 +19,13 @@ $(document).ready(function(){
     
   });
   
-  // Scrolling up
+  // Rolagem para cima
   $('.navup').click(function(event){
     
-    // Sets the scroll amount to the window height
+    // Define a rolagem como sendo a altura da página
     let scrl = $( window ).height();
     
-    // Scrolls down
+    // Efetua a rolagem
     el.scrollBy({
       top: -scrl,
       left: 0,

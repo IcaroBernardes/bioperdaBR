@@ -39,6 +39,7 @@ body {
   color: black;
   font-family: 'Dosis', sans-serif;
   overflow-y: hidden;
+  line-height: 1.2;
 }
 
 #quarto-content {
@@ -56,19 +57,54 @@ main {
   justify-content: space-between;
   align-items: center;
   overflow-y: hidden;
-  padding: 2vh;
+  padding: 3vh 5vh;
+}
+
+.content-container {
+  height: 80vh;
+  width: 100%;
 }
 
 .navdown, .navup {
-  font-size: 10vmin;
+  font-size: 10vh;
   line-height: 0.4;
   cursor: pointer;
   display: block;
+  height: 5vh;
 }
 
 .section-title {
-  font-size: 4vmin;
+  font-size: 4.5vmax;
   font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 3vh;
+}
+
+.section-text {
+  padding: 2vw;
+  font-size: 2.5vmax;
+  max-width: 50vmax !important;
+}
+
+.graph-container {
+  margin: auto;
+}
+
+.graph-container .ggiraph-svg {
+  display: block;
+  width: 100vw !important;
+  max-width: 65vmin !important;
+}
+
+.body-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5vmax;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Capa */
@@ -96,7 +132,7 @@ main {
   width: 100%;
   height: 70vh;
   clip-path: url("#cover-mask");
-  background-image: url("./capa_imagem.jpg");
+  background-image: url("./images/capa_imagem.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -128,12 +164,47 @@ main {
 }
 
 /* Limites planetários */
+.section-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.bg-container {
+  background: url("./images/amazonia_desmatamento.jpg");
+  background-size: cover;
+  background-position: center;
+  /*clip-path: circle(110vmin at 15vw 50%);*/
+  z-index: 0 !important;
+  top: -100vh;
+}
+
+.section-container .flex-container {
+  background: rgb(0 0 0 / 20%);
+  color: white;
+}
+
 #limits {
+  width: 100%;
+  height: 100vh;
+  background-image: url("./images/amazonia_desmatamento.jpg");
+  background-size: cover;
+  background-position: center;
+  clip-path: circle(50% at 0 50%);
+}
+
+/* Níveis de perda */
+#loss {
   width: 100%;
   height: 100vh;
 }
 
-#limits .section-title {
-  text-align: left;
-  width: 100%;
+#perda {
+  display: block;
+  width: 70vmin !important;
+}
+
+#perda {
+  max-width: 50vmax !important;
 }

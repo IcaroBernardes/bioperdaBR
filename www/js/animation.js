@@ -1,6 +1,6 @@
-// Binds animations to elements of the page
+// Associa animações a elementos da página
 
-// Binds an animation loop to the first navigation button 
+// Associa um loop de animação ao primeiro botão de navegação
 $(document).ready(function(){
   
   var ANIMnavdown = anime({
